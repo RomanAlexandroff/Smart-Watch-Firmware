@@ -57,11 +57,9 @@ void  ft_default_mode(void)
                 case 2:   ft_mini_analog_clock_ui();      ft_calendar_ui();           break;
                 case 3:   ft_mini_analog_clock_ui();      ft_weather_ui();            break;
                 case 4:   ft_mini_analog_clock_ui();      ft_moon_phases_ui();        break;
-//                case 5:   ft_mini_analog_clock_ui();      /*Airplane Mode*/           break;    // Airplane mode switches only in case 5, but no func call needed 
                 case 5:   ft_mini_analog_clock_ui();      ft_ota_start_and_ui();      break; 
                 case 6:   ft_mini_analog_clock_ui();      ft_diagnostic_screen_ui();  break;
             }
-//            ft_airplane_mode;                                                                   // Needs to be here to show its icon in every widget
             display.display();
             rtcMng.controllsTracker++;
             ft_encoder_handle();
