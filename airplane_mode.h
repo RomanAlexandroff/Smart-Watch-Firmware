@@ -19,26 +19,26 @@
 /*
 void  ft_airplane_mode(void) 
 {
-    if (rtcValues.onPlane != rtcValues.onPlanePrevious) 
+    if (rtcValues.on_plane != rtcValues.on_planePrevious) 
     {
-        if (rtcValues.onPlane == 1)
+        if (rtcValues.on_plane == 1)
         {
             if (клиент активен, то) client.stop(); //нужно ли это вообще?
             if (вай-фай модуль активен, то) вай-фай модуль стоп
         }
-        if (rtcValues.onPlane == 0)
+        if (rtcValues.on_plane == 0)
         {
             system_rtc_mem_write(64, &rtcMng, sizeof(rtcMng));                             // Save variables for Sleep Mode in RTC memory
             system_rtc_mem_write(RTCMEMORYSTART, &rtcValues, sizeof(rtcValues));           // Save variables for Work Mode in RTC memory
             ESP.deepSleep(10, WAKE_RF_DEFAULT);                                            // Exit infinite while loop with reboot, WI-FI MODULE ON
         }
     }
-    if (rtcValues.onPlane == 1 && rtcMng.encoderCounter == 5)
+    if (rtcValues.on_plane == 1 && rtcMng.encoder_counter == 5)
         покажи большую икону "режим В Самолёте включён"
-    if (rtcMng.encoderCounter == 5 && rtcValues.onPlane == 0)
+    if (rtcMng.encoder_counter == 5 && rtcValues.on_plane == 0)
         покажи большую икону "режим В Самолёте выключен"
-    if (rtcValues.onPlane == 1)
+    if (rtcValues.on_plane == 1)
         покажи маленькую икону "режим В Самолёте включён"
-    rtcValues.onPlanePrevious = rtcValues.onPlane; 
+    rtcValues.on_planePrevious = rtcValues.on_plane; 
 } */
  

@@ -47,17 +47,17 @@ void  ft_diagnostic_screen_ui(void)
     display.setTextSize(1);                         // PROGRAMM CYCLES COUNTER
     display.setTextColor(WHITE);
     display.setCursor(75, 27);
-    display.println(int(rtcMng.programmCycles));
+    display.println(int(rtcMng.program_cycles));
 
     display.setTextSize(1);                         // ENCODER COUNTER STATUS
     display.setTextColor(WHITE);
     display.setCursor(109, 27);
-    display.println(int(rtcMng.encoderCounter));
+    display.println(int(rtcMng.encoder_counter));
 
     display.setTextSize(1);                         // INACTIVITY OF CONTROLLS
     display.setTextColor(WHITE);
     display.setCursor(75, 39);
-    display.println(int(rtcMng.controllsTracker));
+    display.println(int(rtcMng.controls_tracker));
 
     display.setTextSize(1);
     display.setTextColor(WHITE);

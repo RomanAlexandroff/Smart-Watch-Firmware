@@ -24,7 +24,7 @@ void  ft_get_weather(void)
     DEBUG_PRINT("ft_get_weather function BEGIN");
     http.begin(client, (String(F("http://api.openweathermap.org/data/2.5/weather?lat="))
         + String(lat,2) + "&lon=" + String(lon,2)
-        + String(F("&APPID=")) + ApiKey + String(F("&lang=en"))));
+        + String(F("&APPID=")) + api_key + String(F("&lang=en"))));
     http.addHeader(F("Content-Type"), F("text/plain"));
     auto httpCode = http.GET();
     line = http.getString();                                                     // get the response payload

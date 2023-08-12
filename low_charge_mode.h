@@ -21,7 +21,7 @@ void  ft_low_charge_mode(void)
     rtcMng.minute += 1;
     ft_system_clock();
     if (ft_battery_level() >= 10)
-        rtcMng.stateSwitch = WORK;
+        rtcMng.state_switch = WORK;
     system_rtc_mem_write(64, &rtcMng, sizeof(rtcMng));             // save variables in RTC memory
     ESP.deepSleep(((60000 - millis()) * 1000), WAKE_RF_DEFAULT);   // go to sleep, keep the work/sleep cycle within 1 minute (60000 millis), no Wi-Fi sync needed
 }

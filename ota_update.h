@@ -122,7 +122,7 @@ void  ft_ota_start_and_ui(void)
     if (g_icon_cycle > 15 || g_icon_cycle < 1)
         g_icon_cycle = 1; 
     ArduinoOTA.handle();
-    rtcMng.controllsTracker = 0;                                           // Keeps the system awake during OTA
+    rtcMng.controls_tracker = 0;                                           // Keeps the system awake during OTA
     display.drawLine(64, 51, 64, 12, WHITE);
     display.drawBitmap(93, 37, bit_O, 7, 5, WHITE);
     display.drawBitmap(93, 29, bit_T, 7, 5, WHITE);

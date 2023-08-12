@@ -47,16 +47,16 @@ void  ft_get_time(void)
             getWeekDay = line.substring(6, 9);
             rtcValues.day = line.substring(11, 13).toInt();
             getMonth = line.substring(14, 17);
-            rtcMng.hour = (line.substring(23, 25).toInt()) + rtcValues.timeZone;
+            rtcMng.hour = (line.substring(23, 25).toInt()) + rtcValues.time_zone;
             rtcMng.minute = line.substring(26, 28).toInt();
             rtcMng.second = line.substring(29, 31).toInt();
-            if (getWeekDay == "MON") rtcValues.weekDay = 1;                           // Adapting data for ft_system_clock – days of the week
-            if (getWeekDay == "TUE") rtcValues.weekDay = 2;
-            if (getWeekDay == "WED") rtcValues.weekDay = 3;
-            if (getWeekDay == "THU") rtcValues.weekDay = 4;
-            if (getWeekDay == "FRI") rtcValues.weekDay = 5;
-            if (getWeekDay == "SAT") rtcValues.weekDay = 6;
-            if (getWeekDay == "SUN") rtcValues.weekDay = 7;
+            if (getWeekDay == "MON") rtcValues.week_day = 1;                           // Adapting data for ft_system_clock – days of the week
+            if (getWeekDay == "TUE") rtcValues.week_day = 2;
+            if (getWeekDay == "WED") rtcValues.week_day = 3;
+            if (getWeekDay == "THU") rtcValues.week_day = 4;
+            if (getWeekDay == "FRI") rtcValues.week_day = 5;
+            if (getWeekDay == "SAT") rtcValues.week_day = 6;
+            if (getWeekDay == "SUN") rtcValues.week_day = 7;
             if (getMonth == "JAN") rtcValues.month = 1;                               // Adapting data for ft_system_clock – months
             if (getMonth == "FEB") rtcValues.month = 2;
             if (getMonth == "MAR") rtcValues.month = 3;

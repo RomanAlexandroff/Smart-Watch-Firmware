@@ -32,13 +32,13 @@ void  ft_system_clock(void)
     if (rtcMng.hour == 24)
     {
         rtcValues.day += 1;
-        rtcValues.weekDay += 1;
+        rtcValues.week_day += 1;
         rtcMng.hour = 0;
         rtcMng.minute = 0;
         rtcMng.second = 0;
     }
-    if (rtcValues.weekDay == 8)
-        rtcValues.weekDay = 1;
+    if (rtcValues.week_day == 8)
+        rtcValues.week_day = 1;
     switch (rtcValues.month)
     {
         case 1:   if (rtcValues.day == 32) { rtcValues.day=1; rtcValues.month+=1; }

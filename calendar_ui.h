@@ -225,7 +225,7 @@ void  ft_calendar_ui(void)
               display.drawBitmap(x+24, y+33,  bit_num0, 19, 12, WHITE); 
               display.drawBitmap(x+24, y+19,  bit_num0, 19, 12, WHITE);
         }         
-        switch(rtcValues.weekDay)
+        switch(rtcValues.week_day)
         {
             case 1:                                                        //MONDAY
               display.drawBitmap(x+49, y+47, bit_M, 7, 5, WHITE);

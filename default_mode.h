@@ -32,14 +32,14 @@ void  ft_default_mode(void)
         if (millis() - millis_counter_1 > 995)
         {
             ft_system_clock();
-            rtcMng.programmCycles++;
+            rtcMng.program_cycles++;
             millis_counter_1 = millis(); 
         }
         if (millis() - millis_counter_2 > 350)                                               // loop & display update delay
         {
             ft_encoder_handle();
             display.clearDisplay();
-            if ((rtcMng.programmCycles % 1200 == 0) && rtcValues.onPlane == 0)             // toggle these functions once every 20 mins 
+            if ((rtcMng.program_cycles % 1200 == 0) && rtcValues.on_plane == 0)             // toggle these functions once every 20 mins 
             {
                 ft_get_location();                                                                          
                 ft_get_weather();                                       
@@ -49,9 +49,9 @@ void  ft_default_mode(void)
             if (rtcMng.second == 0)
             {
                 if (ft_battery_level() < 10)
-                    rtcMng.stateSwitch = LOWCHARGE; 
+                    rtcMng.state_switch = LOWCHARGE; 
             }
-            switch (rtcMng.encoderCounter) 
+            switch (rtcMng.encoder_counter) 
             {
                 case 1:   ft_mini_analog_clock_ui();      ft_mini_digital_clock_ui(); break;
                 case 2:   ft_mini_analog_clock_ui();      ft_calendar_ui();           break;
@@ -61,13 +61,13 @@ void  ft_default_mode(void)
                 case 6:   ft_mini_analog_clock_ui();      ft_diagnostic_screen_ui();  break;
             }
             display.display();
-            rtcMng.controllsTracker++;
+            rtcMng.controls_tracker++;
             ft_encoder_handle();
             millis_counter_2 = millis();
         }
-        if (rtcMng.controllsTracker == INACTIVITY || rtcMng.stateSwitch == LOWCHARGE)      // Go to Sleep Mode if inactive or low battery 
+        if (rtcMng.controls_tracker == INACTIVITY || rtcMng.state_switch == LOWCHARGE)      // Go to Sleep Mode if inactive or low battery 
         {
-            rtcMng.stateSwitch = SLEEP;
+            rtcMng.state_switch = SLEEP;
             system_rtc_mem_write(64, &rtcMng, sizeof(rtcMng));                             // save variables for Sleep Mode in RTC memory
             system_rtc_mem_write(RTCMEMORYSTART, &rtcValues, sizeof(rtcValues));           // save variables for Work Mode in RTC memory
             ESP.deepSleep(100, WAKE_RF_DEFAULT);                                           // exit infinite while loop with reboot, no Wi-Fi sync needed

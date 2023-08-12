@@ -16,39 +16,39 @@
 
 void ft_button_handle(void) 
 {            
-    rtcMng.controllsTracker = 0;                                           // Wakes up the system
-    rtcMng.encoderCounter += 1;
-    if (rtcMng.encoderCounter >= 7) rtcMng.encoderCounter = 1;
-//    if (rtcMng.encoderCounter == 5) rtcValues.onPlane = !rtcValues.onPlane;    // Airplane Mode toggle on/off             
+    rtcMng.controls_tracker = 0;                                           // Wakes up the system
+    rtcMng.encoder_counter += 1;
+    if (rtcMng.encoder_counter >= 7) rtcMng.encoder_counter = 1;
+//    if (rtcMng.encoder_counter == 5) rtcValues.on_plane = !rtcValues.on_plane;    // Airplane Mode toggle on/off             
 }
 
 void ft_encoder_handle(void)
 {
     volatile long newPosition = myEnc.read();
-    if (newPosition != rtcValues.oldPosition)
+    if (newPosition != rtcValues.old_position)
     {
-        if (newPosition > rtcValues.oldPosition) 
+        if (newPosition > rtcValues.old_position) 
         {
-            rtcMng.encoderCounter += 1;
-            if (rtcMng.encoderCounter >= 7) rtcMng.encoderCounter = 1;
+            rtcMng.encoder_counter += 1;
+            if (rtcMng.encoder_counter >= 7) rtcMng.encoder_counter = 1;
         }
-        if (newPosition < rtcValues.oldPosition)
+        if (newPosition < rtcValues.old_position)
         {
-            rtcMng.encoderCounter -= 1;
-            if (rtcMng.encoderCounter <= 0) rtcMng.encoderCounter = 6;
+            rtcMng.encoder_counter -= 1;
+            if (rtcMng.encoder_counter <= 0) rtcMng.encoder_counter = 6;
         }
-        rtcValues.oldPosition = newPosition;
-        rtcMng.controllsTracker = 0;                                        // Wakes up the system
+        rtcValues.old_position = newPosition;
+        rtcMng.controls_tracker = 0;                                        // Wakes up the system
     }
 }
 
 void ft_tilt_detector_handle(void)
 {
-    rtcMng.tiltSwitch = !rtcMng.tiltSwitch;
-    if (rtcMng.tiltSwitch)
-        rtcMng.controllsTracker = 0;                                        // Wakes up the system
-    if (!rtcMng.tiltSwitch)
-        rtcMng.controllsTracker = INACTIVITY;                               // Puts the system to sleep
+    rtcMng.tilt_switch = !rtcMng.tilt_switch;
+    if (rtcMng.tilt_switch)
+        rtcMng.controls_tracker = 0;                                        // Wakes up the system
+    if (!rtcMng.tilt_switch)
+        rtcMng.controls_tracker = INACTIVITY;                               // Puts the system to sleep
 }
 
 

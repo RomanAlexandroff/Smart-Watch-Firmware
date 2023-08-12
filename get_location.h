@@ -46,8 +46,8 @@ void  ft_get_location(void)
     HTTPClient http;
 
     // configure traged server and url
-    http.begin(client, serverName);
-    DEBUG_PRINT("Target server: "); DEBUG_PRINT(serverName);
+    http.begin(client, server_name);
+    DEBUG_PRINT("Target server: "); DEBUG_PRINT(server_name);
     http.addHeader("Content-Type", "application/json");
     int httpResponseCode = http.POST("{\n\"token\": \"pk.051929e8338d2971fa007db8ae5f45fe\",\n\"ip\": \"46.135.18.126\",\n\"fallbacks\": {\n\"ipf\": \"1\"\n},\n\"address\": 2\n}");
     DEBUG_PRINT("Outgoing request: "); DEBUG_PRINT(httpResponseCode);

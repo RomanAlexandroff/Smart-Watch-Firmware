@@ -24,14 +24,14 @@ void  ft_sleep_mode(void)
     if (rtcMng.second == 0)
     {
         if (ft_battery_level() < 10)
-            rtcMng.stateSwitch = LOWCHARGE; 
+            rtcMng.state_switch = LOWCHARGE; 
     }
     display.clearDisplay();
     ft_maxi_analog_clock_ui();  
     display.display();
     ft_encoder_handle();
-    if (rtcMng.stateSwitch != LOWCHARGE && rtcMng.controllsTracker == 0)
-        rtcMng.stateSwitch = WORK;
+    if (rtcMng.state_switch != LOWCHARGE && rtcMng.controls_tracker == 0)
+        rtcMng.state_switch = WORK;
     system_rtc_mem_write(64, &rtcMng, sizeof(rtcMng));        // save variables in RTC memory
     sleep_time = (1000 - millis()) * 1000;
     ESP.deepSleep(sleep_time, WAKE_RF_DEFAULT);               // go to sleep, keep the work/sleep cycle within 1 second (1000 millis), no Wi-Fi sync needed

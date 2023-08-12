@@ -9,18 +9,8 @@
 /*   Updated: 2023/03/15 23:08:41                                ###    ###   ###     ###         */
 /*                                                                                                */
 /*                                                                                                */
-/*   The main file of the project.                                                                */
-/*   TARGETED HARDWARE:                                                                           */
-/*      Ai-Thinker ESP–01M module;                                                                */
-/*      OLED display, 128x64, controller SSD1306, white pixels, I2C bus;                          */
-/*      LiPol Battery, 230mAh, 3.7V;                                                              */
-/*      Rotary encoder;                                                                           */
-/*      Button [ VCC———INTERNAL_PULLUP_RESISTOR———GPIO———BUTTON———GND ];                          */
-/*      SW-520D tilt detector;                                                                    */
-/*                                                                                                */
-/*   NOTES:                                                                                       */
-/*      ESP–01M does not support external interrupt for deep sleep wake up.                       */
-/*      System wakes itself up with timer & checks controlls status.                              */
+/*   The main file of the project. Here main controls get initialised then one of operational     */
+/*   modes gets to be chosen.                                                                     */
 /*                                                                                                */
 /* ********************************************************************************************** */
 
@@ -40,11 +30,11 @@ void setup(void)
     display.begin(SSD1306_SWITCHCAPVCC, 0x3C);                                            // OLED display initialisation (ssd1306 128x64)
     system_rtc_mem_read(64, &rtcMng, sizeof(rtcMng));                                     // restore variables from RTC memory after reboot
     display.clearDisplay();
-    if (rtcMng.stateSwitch == WORK) 
+    if (rtcMng.state_switch == WORK) 
         ft_default_mode();
-    else if (rtcMng.stateSwitch == SLEEP)
+    else if (rtcMng.state_switch == SLEEP)
         ft_sleep_mode();
-    else if (rtcMng.stateSwitch == LOWCHARGE) 
+    else if (rtcMng.state_switch == LOWCHARGE) 
         ft_low_charge_mode();
     else
         ft_power_down_recovery();
