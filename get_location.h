@@ -15,18 +15,21 @@
 
 void  ft_get_location(void)
 {
-    const char*         address_detail_city;                              // Default city name — Prague
-    const char*         status;
+    const char*         server_name;
+    int                 http_response;
     char                bssid[6];
     String              IP;
     String              jsonString;
     DynamicJsonDocument doc(264);
+    String              line;
+    const char*         status;
+    const char*         address_detail_city;
 
+    server_name = "https://ap1.unwiredlabs.com/v2/process.php";
+    status = "Error";
     IP = WiFi.localIP().toString();
-    status = "Error";                                                     // Shows communication with server status
     DEBUG_PRINT("ft_get_location function BEGIN");
     DEBUG_PRINT("Current IP: "); DEBUG_PRINT(IP);
-/*
     jsonString = "{\n";
     jsonString += "\"token\": \"";
     jsonString += token;
@@ -38,21 +41,16 @@ void  ft_get_location(void)
     jsonString += "\"ipf\" : \"1\"\n";
     jsonString += "},\n";        
     jsonString += "\"address\": 2\n";    
-    jsonString += ("}\n");
-*/
-
-//    client.setFingerprint(sslFingerprint);
-
+    jsonString += "}\n";
+    client.setFingerprint(sslFingerprint);
     HTTPClient http;
-
-    // configure traged server and url
     http.begin(client, server_name);
-    DEBUG_PRINT("Target server: "); DEBUG_PRINT(server_name);
+    DEBUG_PRINT("Target server: ");
+    DEBUG_PRINT(server_name);
     http.addHeader("Content-Type", "application/json");
-    int httpResponseCode = http.POST("{\n\"token\": \"pk.051929e8338d2971fa007db8ae5f45fe\",\n\"ip\": \"46.135.18.126\",\n\"fallbacks\": {\n\"ipf\": \"1\"\n},\n\"address\": 2\n}");
-    DEBUG_PRINT("Outgoing request: "); DEBUG_PRINT(httpResponseCode);
-
-/*
+    http_response = http.POST(jsonString);
+    DEBUG_PRINT("Outgoing request: ");
+    DEBUG_PRINT(http_response);
     if (client.connect(Host, 443))                                          // Connect to the client and make the api call 
     {
         DEBUG_PRINT("Server connection SUCCESS");
@@ -67,11 +65,15 @@ void  ft_get_location(void)
         client.print(jsonString);
         delay(500);                                                         // Approx. real time gap is 250-380 ms
     }
-*/  
+    else
+    {
+        DEBUG_PRINT("Server connection FAILED");
+        return;
+    }
     while (client.available())
     {
         DEBUG_PRINT("Server connection SUCCESS");
-        String line = client.readString();
+        line = client.readString();
         StaticJsonDocument<384> doc;
         DeserializationError error = deserializeJson(doc, line);
         if (error)
@@ -90,7 +92,6 @@ void  ft_get_location(void)
         DEBUG_PRINT(lon);
         DEBUG_PRINT(address_detail_city);
     }
-    DEBUG_PRINT("Server connection FAILED");
     http.end();
     DEBUG_PRINT("ft_get_location function FINISHED");
 }

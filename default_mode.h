@@ -39,7 +39,7 @@ void  ft_default_mode(void)
         {
             ft_encoder_handle();
             display.clearDisplay();
-            if ((rtcMng.program_cycles % 1200 == 0) && rtcValues.on_plane == 0)             // toggle these functions once every 20 mins 
+            if (rtcMng.program_cycles % 1200 == 0)                                           // toggle these functions once every 20 mins 
             {
                 ft_get_location();                                                                          
                 ft_get_weather();                                       

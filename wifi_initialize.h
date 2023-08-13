@@ -21,12 +21,8 @@ void  ft_wifi_init(void)
     WiFi.mode(WIFI_STA);
     WiFi.hostname("Roman's Watch");
     ft_wifi_list();
-    if (wifiMulti.run(g_connect_timeout) == WL_CONNECTED) 
-    {
+    if (wifiMulti.run(CONNECT_TIMEOUT) == WL_CONNECTED) 
         DEBUG_PRINT("Successfully connected to Wi-Fi network");
-    }
     else
-    {
         DEBUG_PRINT("Unable to connect to Wi-Fi network. Proceeding without connection");
-    }     
 }

@@ -17,16 +17,16 @@
 
 void  ft_wifi_list(void)
 {
-    wifiMulti.addAP("brok.jmnet.cz", "19S67MBA");
-    wifiMulti.addAP("42p_guest", "guest.of.42");
-    wifiMulti.addAP("brmlab.cz", "brmlabINSIDE!");
-    wifiMulti.addAP("Roman_iPhone_8", "qweasdyxc123");
-    wifiMulti.addAP("Stas118_2.4", "180915LK");
-    wifiMulti.addAP("stas", "18091809");
-    wifiMulti.addAP("O2-Internet-304", "SJd96Qux");
-    wifiMulti.addAP("Parlor", "Iloveicecream2");
-    wifiMulti.addAP("camppraha", "karelprager");
-    wifiMulti.addAP("pavaon.cz", "pavaon11");
-    wifiMulti.addAP("BERNARD", "jeseniova93");
+    wifiMulti.addAP(SSID1, PASSWORD1);
+    wifiMulti.addAP(SSID2, PASSWORD2);
+    wifiMulti.addAP(SSID3, PASSWORD3);
+    wifiMulti.addAP(SSID4, PASSWORD4);
+    wifiMulti.addAP(SSID5, PASSWORD5);
+    wifiMulti.addAP(SSID6, PASSWORD6);
+    wifiMulti.addAP(SSID7, PASSWORD7);
+    wifiMulti.addAP(SSID8, PASSWORD8);
+    wifiMulti.addAP(SSID9, PASSWORD9);
+    wifiMulti.addAP(SSID10, PASSWORD10);
+    wifiMulti.addAP(SSID11, PASSWORD11);
 }
  

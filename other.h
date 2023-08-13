@@ -18,8 +18,7 @@ void ft_button_handle(void)
 {            
     rtcMng.controls_tracker = 0;                                           // Wakes up the system
     rtcMng.encoder_counter += 1;
-    if (rtcMng.encoder_counter >= 7) rtcMng.encoder_counter = 1;
-//    if (rtcMng.encoder_counter == 5) rtcValues.on_plane = !rtcValues.on_plane;    // Airplane Mode toggle on/off             
+    if (rtcMng.encoder_counter >= 7) rtcMng.encoder_counter = 1;           
 }
 
 void ft_encoder_handle(void)

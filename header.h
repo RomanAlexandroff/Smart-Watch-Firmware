@@ -6,7 +6,7 @@
 /*   By: Roman Alexandrov <r.aleksandroff@gmail.com>                +#++:++#:    +#++:++#++:      */
 /*                                                                 +#+    +#+   +#+     +#+       */
 /*   Created: 2023/06/28 14:49:16                                 #+#    #+#   #+#     #+#        */
-/*   Updated: 2023/06/29 18:48:41                                ###    ###   ###     ###         */
+/*   Updated: 2023/08/13 09:48:41                                ###    ###   ###     ###         */
 /*                                                                                                */
 /*                                                                                                */
 /* ********************************************************************************************** */
@@ -20,7 +20,7 @@
 #include <ESP8266HTTPClient.h>
 #include <SPI.h>
 #include <Wire.h>
-#include <Adafruit_GFX.h>                                   // drawing User Interface (UI)
+#include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>                               // edited version of the standard Adafruit_SSD1306.h
 #include <ArduinoJson.h>
 #include <Encoder.h>
@@ -28,6 +28,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <math.h>
+#include "credentials.h"
 #include "bitmap_library.h"
 extern "C" {
     #include "user_interface.h"                             // RTC memory read/write functions
@@ -53,6 +54,7 @@ extern "C" {
 #define INACTIVITY      250                                  // If no controlls were touched within 1 minute, the system goes into Sleep Mode
 //#define SLEEPTIME       727320                               // duration of deepSleep in Sleep Mode = 1 second
 //#define LOWTIME         60000000                             // duration of deepSleep in Low Charge Mode = 1 minute
+#define CONNECT_TIMEOUT 5000                                 // WiFi timeout per each AP, in milliseconds. Increase if cannot connect.
 #define BUTTON_PIN      4
 #define TILT_PIN        5
 
@@ -68,7 +70,7 @@ typedef struct {
   short           hour;
   short           minute;
   short           second;
-  volatile int    controls_tracker;                         // inactivity timer. Can be changed by Button, Encoder and Tilt Detector
+  volatile int    controls_tracker;                         // inactivity timer
   volatile byte   encoder_counter;                          // encoder
   volatile bool   tilt_switch;                              // tilt detector
 } rtcManagementStruc;
@@ -76,8 +78,6 @@ rtcManagementStruc rtcMng;                                  // this struct is fo
 
 typedef struct {
   volatile long   old_position;                             // encoder
-  volatile bool   on_plane;                                 // Airplane Mode flag. 0 == off, 1 == on
-  bool            on_planePrevious;
   signed int      time_zone;
   short           day;
   short           week_day;
@@ -88,16 +88,11 @@ typedef struct {
 rtcStore rtcValues;                                         // WORK mode RTC memory struct
 
 unsigned short  g_icon_cycle = 1;
-const uint32_t  g_connect_timeout = 5000;                                     // Wi-Fi connect timeout per each AP
 short           x = 0;
 short           y = 0;
-const char*     server_name = "https://ap1.unwiredlabs.com/v2/process.php";
-const String    token = "pk.051929e8338d2971fa007db8ae5f45fe";                // UnwiredLabs API token 
 float           lat = 50.0596696;                                             // default latitude — Prague
 float           lon = 14.4656239;                                             // default longitude — Prague
-const String    api_key = "876dcc47a263d9592d6512f43f844417";                 // OpenWeather
 
-void  ft_airplane_mode(void);
 short ft_battery_level(void);
 void  ft_battery_level_ui(short);
 void  IRAM_ATTR ft_button_handle(void);
@@ -126,7 +121,6 @@ void  ft_wifi_init(void);
 void  ft_wifi_list(void);
 
 #include "ota_update.h"
-#include "airplane_mode.h"
 #include "calendar_ui.h"
 #include "default_mode.h"
 #include "get_location.h"
