@@ -17,8 +17,7 @@
 void  ft_calendar_ui(void)
 {
     x = 64;                                                                 // ВРЕМЕННАЯ ФИКСАЦИЯ ПОЛОЖЕНИЯ НА ЭКРАНЕ – УДАЛИТЬ КОГДА УЖЕ НЕ НУЖНО
-    display.drawRoundRect(x+4, y+2, 60, 60, 8, WHITE);                      // OUTLINE
-    display.drawRoundRect(x+4, y+2, 15, 60, 7, WHITE);                      // MONTH OUTLINE         
+    display.drawLine(64, 51, 64, 12, WHITE);                                // DIVIDING LINE BETWEEN THE UPPER AND LOWER SCREEN        
         switch(rtcValues.month)
         {
             case 1:                                                         // January 
