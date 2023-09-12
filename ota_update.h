@@ -67,7 +67,7 @@ void  ft_setup_ota(const char* nameprefix, const char* ssid, const char* passwor
         display.drawBitmap(106, 26, bit_L, 7, 5, WHITE);
         display.drawBitmap(106, 20, bit_E, 7, 5, WHITE);
         display.drawBitmap(106, 14, bit_T, 7, 5, WHITE);
-        display.drawBitmap(106, 8, bit_E, 7, 5, WHITE);
+        display.drawBitmap(106,  8, bit_E, 7, 5, WHITE);
         display.display();
         DEBUG_PRINT("\nEnd");
     });
@@ -117,7 +117,7 @@ void  ft_setup_ota(const char* nameprefix, const char* ssid, const char* passwor
     DEBUG_PRINT("IP address: "); DEBUG_PRINT(WiFi.localIP());
 }
 
-void  ft_ota_start_and_ui(void)
+void  ft_ota_start_and_ui(short battery_charge)
 {
     if (g_icon_cycle > 15 || g_icon_cycle < 1)
         g_icon_cycle = 1; 
@@ -128,12 +128,33 @@ void  ft_ota_start_and_ui(void)
     display.drawBitmap(93, 29, bit_T, 7, 5, WHITE);
     display.drawBitmap(93, 21, bit_A, 7, 5, WHITE);
     display.drawRoundRect(106, 11, 7, 40, 4, WHITE);
-    if (g_icon_cycle == 1 || g_icon_cycle == 2)
-        display.fillRect(109, 38, 1, 2, WHITE);
-    if (g_icon_cycle == 3 || g_icon_cycle == 4)
-        display.fillRect(109, 30, 1, 2, WHITE);
-    if (g_icon_cycle == 5 || g_icon_cycle == 6)
-        display.fillRect(109, 22, 1, 2, WHITE);
-    g_icon_cycle++;
+    if (battery_charge < 12)
+    {
+        display.drawBitmap(105, 51, bit_B, 7, 5, WHITE);
+        display.drawBitmap(105, 44, bit_A, 7, 5, WHITE); 
+        display.drawBitmap(105, 37, bit_T, 7, 5, WHITE);
+        display.drawBitmap(105, 30, bit_T, 7, 5, WHITE);
+        display.drawBitmap(105, 23, bit_E, 7, 5, WHITE);
+        display.drawBitmap(105, 16, bit_R, 7, 5, WHITE);
+        display.drawBitmap(105,  9, bit_Y, 7, 5, WHITE);
+        display.drawBitmap(114, 33, bit_I, 7, 5, WHITE);
+        display.drawBitmap(114, 26, bit_S, 7, 5, WHITE);
+        display.drawBitmap(123, 51, bit_T, 7, 5, WHITE);
+        display.drawBitmap(123, 44, bit_O, 7, 5, WHITE); 
+        display.drawBitmap(123, 37, bit_O, 7, 5, WHITE);
+        display.drawBitmap(123, 23, bit_L, 7, 5, WHITE);
+        display.drawBitmap(123, 16, bit_O, 7, 5, WHITE);
+        display.drawBitmap(123,  9, bit_W, 7, 5, WHITE);
+    }
+    else
+    {
+        if (g_icon_cycle == 1 || g_icon_cycle == 2)
+            display.fillRect(109, 38, 1, 2, WHITE);
+        if (g_icon_cycle == 3 || g_icon_cycle == 4)
+            display.fillRect(109, 30, 1, 2, WHITE);
+        if (g_icon_cycle == 5 || g_icon_cycle == 6)
+            display.fillRect(109, 22, 1, 2, WHITE);
+        g_icon_cycle++;
+    }
 }
  

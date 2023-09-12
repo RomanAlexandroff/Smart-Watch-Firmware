@@ -18,6 +18,7 @@ void  ft_default_mode(void)
 {
     unsigned long millis_counter_1;
     unsigned long millis_counter_2;
+    short         battery_charge;
 
     millis_counter_1 = 0;
     millis_counter_2 = 0;
@@ -48,17 +49,18 @@ void  ft_default_mode(void)
 //            ft_battery_level_ui(ft_battery_level());
             if (rtcMng.second == 0)
             {
-                if (ft_battery_level() < 10)
+                battery_charge = ft_battery_level();
+                if (battery_charge < 10)
                     rtcMng.state_switch = LOWCHARGE; 
             }
             switch (rtcMng.encoder_counter) 
             {
-                case 1:   ft_mini_analog_clock_ui();      ft_mini_digital_clock_ui(); break;
-                case 2:   ft_mini_analog_clock_ui();      ft_calendar_ui();           break;
-                case 3:   ft_mini_analog_clock_ui();      ft_weather_ui();            break;
-                case 4:   ft_mini_analog_clock_ui();      ft_moon_phases_ui();        break;
-                case 5:   ft_mini_analog_clock_ui();      ft_ota_start_and_ui();      break; 
-                case 6:   ft_mini_analog_clock_ui();      ft_diagnostic_screen_ui();  break;
+                case 1:   ft_mini_analog_clock_ui();      ft_mini_digital_clock_ui();               break;
+                case 2:   ft_mini_analog_clock_ui();      ft_calendar_ui();                         break;
+                case 3:   ft_mini_analog_clock_ui();      ft_weather_ui();                          break;
+                case 4:   ft_mini_analog_clock_ui();      ft_moon_phases_ui();                      break;
+                case 5:   ft_mini_analog_clock_ui();      ft_ota_start_and_ui(battery_charge);      break; 
+                case 6:   ft_mini_analog_clock_ui();      ft_diagnostic_screen_ui();                break;
             }
             display.display();
             rtcMng.controls_tracker++;

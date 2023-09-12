@@ -109,7 +109,7 @@ void  ft_mini_analog_clock_ui(void);                                 // Analog C
 void  ft_mini_digital_clock_ui(void);                                // Digital Clock UI -- Standard (64x64) version
 void  ft_moon_phases_ui(void);
 void  ft_power_down_recovery(void);
-void  ft_ota_start_and_ui(void);
+void  ft_ota_start_and_ui(short battery_charge);
 void  ft_setup_ota(const char* nameprefix, const char* ssid, const char* password);
 void  ft_sleep_mode(void);
 int   ft_size_x(int r, float alpha);
