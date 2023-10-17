@@ -6,6 +6,9 @@
 # Personal data
 credentials.*
 
+# macOS system files
+.DS_Store
+
 # Prerequisites
 *.d
 
