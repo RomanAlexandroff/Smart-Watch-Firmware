@@ -80,17 +80,30 @@
 
 
   ***********************************************************************************************
+
   
-      PROJECT NOTES:
+        PROJECT NOTES:
 
-    The hardware:
+      The hardware:
     
-    Ai-Thinker ESP–01M module;
-    OLED display, 128x64, controller SSD1306, white pixels, I2C bus;
-    LiPol Battery, 230mAh, 3.7V;
-    Rotary encoder;
-    Button [ VCC———INTERNAL_PULLUP_RESISTOR———GPIO———BUTTON———GND ];
-    SW-520D tilt detector;    
+      Ai-Thinker ESP–01M module;
+      OLED display, 128x64, controller SSD1306, white pixels, I2C bus;
+      LiPol Battery, 230mAh, 3.7V;
+      Rotary encoder;
+      Button [ VCC———INTERNAL_PULLUP_RESISTOR———GPIO———BUTTON———GND ];
+      SW-520D tilt detector;    
 
-   
+
+  ***********************************************************************************************
+
+
+        CALCULATING CONSTANTS FOR BATTERY CHARGE FUNCTION:
+
+      You will need to check the following little utility:
+      https://github.com/RomanAlexandroff/ESP-Battery-Charge-Utility
+      
+      It was designed to be a universal solution for battery charge level detection in ESP-based
+      projects and has all the instructions inside of it.
+
+  
   *********************************************************************************************** */
