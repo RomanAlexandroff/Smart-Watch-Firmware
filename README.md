@@ -7,23 +7,23 @@ This firmware was developed with the goal of providing a simple yet powerful fou
 
 ## Key Features
 
-Widgets Galore
-I've implemented a range of widgets to enhance the functionality of your smart watch. You'll find both analog and digital clocks to suit your personal style, a calendar widget to keep track of important dates, and a weather widget to keep you informed about the current conditions. Additionally, I've included a widget that displays the phases of the Moon, adding a touch of celestial charm to your device.
+- Widgets Galore: 
+ I've implemented a range of widgets to enhance the functionality of your smart watch. You'll find both analog and digital clocks to suit your personal style, a calendar widget to keep track of important dates, and a weather widget to keep you informed about the current conditions. Additionally, I've included a widget that displays the phases of the Moon, adding a touch of celestial charm to your device.
 
-Power-Save Mode
-I understand the importance of maximizing battery life on a wearable device. With my firmware, you can take advantage of a power-save mode that intelligently manages power consumption. Enjoy extended battery life without compromising the core functionality of your smart watch.
+- Power-Save Mode: 
+ I understand the importance of maximizing battery life on a wearable device. With my firmware, you can take advantage of a power-save mode that intelligently manages power consumption. Enjoy extended battery life without compromising the core functionality of your smart watch.
 
-Over The Air Firmware Update
-Keeping your smart watch up to date has never been easier. I've designed the firmware to support Over The Air (OTA) firmware updates, ensuring that you can easily install the latest features and bug fixes without the need for complicated manual procedures. Stay ahead of the curve and enjoy the benefits of ongoing firmware improvements.
+- Over The Air Firmware Update: 
+ Keeping your smart watch up to date has never been easier. I've designed the firmware to support Over The Air (OTA) firmware updates, ensuring that you can easily install the latest features and bug fixes without the need for complicated manual procedures. Stay ahead of the curve and enjoy the benefits of ongoing firmware improvements.
 
-Seamless Wi-Fi Connectivity
-Connectivity is a crucial aspect of any smart watch. My firmware provides seamless support for multiple Wi-Fi networks, allowing you to stay connected no matter where you are. Effortlessly switch between networks and enjoy uninterrupted access to online services and data synchronization.
+- Seamless Wi-Fi Connectivity: 
+ Connectivity is a crucial aspect of any smart watch. My firmware provides seamless support for multiple Wi-Fi networks, allowing you to stay connected no matter where you are. Effortlessly switch between networks and enjoy uninterrupted access to online services and data synchronization.
 
-Intuitive User Inputs
-Interacting with your smart watch should be a breeze. That's why I've incorporated support for a scroll wheel, a button, and a tilt detector into the firmware. Navigate through menus, scroll through widgets, and trigger actions with ease. Enjoy a seamless user experience that's tailored to your preferences.
+- Intuitive User Inputs: 
+ Interacting with your smart watch should be a breeze. That's why I've incorporated support for a scroll wheel, a button, and a tilt detector into the firmware. Navigate through menus, scroll through widgets, and trigger actions with ease. Enjoy a seamless user experience that's tailored to your preferences.
 
-Vertical 128x64 Pixels OLED Display
-Break away from the traditional horizontal display orientation. My firmware enables you to utilize a 128x64 pixels OLED display vertically, opening up new design possibilities for your smart watch. Custom-made icons and symbols ensure that the display remains clear and easy to read, regardless of its uncommon orientation.
+- Vertical 128x64 Pixels OLED Display: 
+ Break away from the traditional horizontal display orientation. My firmware enables you to utilize a 128x64 pixels OLED display vertically, opening up new design possibilities for your smart watch. Custom-made icons and symbols ensure that the display remains clear and easy to read, regardless of its uncommon orientation.
  
  
 ## Hardware
