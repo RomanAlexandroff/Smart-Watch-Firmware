@@ -59,8 +59,8 @@ const String api_key = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";    // OpenWeather API
 #define SSID2         "university_wifi_name"
 #define PASSWORD2     "university_wifi_password"
     
-#define SSID3         "restaurant_wifi_name"
-#define PASSWORD3     "restaurant_wifi_password"
+#define SSID3         "office_wifi_name"
+#define PASSWORD3     "office_wifi_password"
 ```
  
  
