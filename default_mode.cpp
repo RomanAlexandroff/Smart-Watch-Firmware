@@ -1,18 +1,20 @@
 /* ********************************************************************************************** */
 /*                                                                                                */
 /*   Smart Watch Firmware                                              :::::::::        :::       */
-/*   default_mode.h                                                   :+:    :+:     :+: :+:      */
+/*   default_mode.cpp                                                 :+:    :+:     :+: :+:      */
 /*                                                                   +:+    +:+    +:+   +:+      */
 /*   By: Roman Alexandrov <r.aleksandroff@gmail.com>                +#++:++#:    +#++:++#++:      */
 /*                                                                 +#+    +#+   +#+     +#+       */
 /*   Created: 2023/06/28 14:49:16                                 #+#    #+#   #+#     #+#        */
-/*   Updated: 2023/06/29 18:48:41                                ###    ###   ###     ###         */
+/*   Updated: 2023/11/12 13:48:41                                ###    ###   ###     ###         */
 /*                                                                                                */
 /*                                                                                                */
 /*   Default working mode. Calls necessary functions to gather or manage information, then        */
 /*   outputs that information onto a screen in a shape of 64x64 pixels widgets.                   */
 /*                                                                                                */
 /* ********************************************************************************************** */
+
+#include "header.h"
 
 void  ft_default_mode(void)
 {
@@ -24,7 +26,7 @@ void  ft_default_mode(void)
     millis_counter_2 = 0;
     system_rtc_mem_read(RTCMEMORYSTART, &rtcValues, sizeof(rtcValues));                   // restore variables from RTC memory
     ft_wifi_init();
-    ft_get_location();                                                                          
+//    ft_get_location();                                                                          
     ft_get_weather();                                      
     ft_get_time();
     ft_setup_ota("Roman's Watch", WiFi.SSID().c_str(), WiFi.psk().c_str());
@@ -42,7 +44,7 @@ void  ft_default_mode(void)
             display.clearDisplay();
             if (rtcMng.program_cycles % 1200 == 0)                                           // toggle these functions once every 20 mins 
             {
-                ft_get_location();                                                                          
+//                ft_get_location();                                                                          
                 ft_get_weather();                                       
                 ft_get_time();      
             }

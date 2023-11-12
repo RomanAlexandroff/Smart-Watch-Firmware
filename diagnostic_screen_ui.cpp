@@ -1,12 +1,12 @@
 /* ********************************************************************************************** */
 /*                                                                                                */
 /*   Smart Watch Firmware                                              :::::::::        :::       */
-/*   diagnostic_screen_ui.h                                           :+:    :+:     :+: :+:      */
+/*   diagnostic_screen_ui.cpp                                         :+:    :+:     :+: :+:      */
 /*                                                                   +:+    +:+    +:+   +:+      */
 /*   By: Roman Alexandrov <r.aleksandroff@gmail.com>                +#++:++#:    +#++:++#++:      */
 /*                                                                 +#+    +#+   +#+     +#+       */
 /*   Created: 2023/06/28 14:49:16                                 #+#    #+#   #+#     #+#        */
-/*   Updated: 2023/06/29 18:48:41                                ###    ###   ###     ###         */
+/*   Updated: 2023/11/12 13:48:41                                ###    ###   ###     ###         */
 /*                                                                                                */
 /*                                                                                                */
 /*   The function outputs various diagnostic data onto the display. Initially, it was created     */
@@ -14,6 +14,8 @@
 /*   used as an ordinary widget.                                                                  */
 /*                                                                                                */
 /* ********************************************************************************************** */
+
+#include "header.h"
 
 void  ft_diagnostic_screen_ui(void)
 {       

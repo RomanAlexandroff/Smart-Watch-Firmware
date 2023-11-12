@@ -1,12 +1,12 @@
 /* ********************************************************************************************** */
 /*                                                                                                */
 /*   Smart Watch Firmware                                              :::::::::        :::       */
-/*   calendar_ui.h                                                    :+:    :+:     :+: :+:      */
+/*   calendar_ui.cpp                                                  :+:    :+:     :+: :+:      */
 /*                                                                   +:+    +:+    +:+   +:+      */
 /*   By: Roman Alexandrov <r.aleksandroff@gmail.com>                +#++:++#:    +#++:++#++:      */
 /*                                                                 +#+    +#+   +#+     +#+       */
 /*   Created: 2023/06/28 14:49:16                                 #+#    #+#   #+#     #+#        */
-/*   Updated: 2023/06/29 18:48:41                                ###    ###   ###     ###         */
+/*   Updated: 2023/11/12 13:48:41                                ###    ###   ###     ###         */
 /*                                                                                                */
 /*                                                                                                */
 /*   The function assembles all the calendar related information in a correct order and puts      */
@@ -14,9 +14,11 @@
 /*                                                                                                */
 /* ********************************************************************************************** */
 
+#include "header.h"
+
 void  ft_calendar_ui(void)
 {
-    x = 64;                                                                 // ВРЕМЕННАЯ ФИКСАЦИЯ ПОЛОЖЕНИЯ НА ЭКРАНЕ – УДАЛИТЬ КОГДА УЖЕ НЕ НУЖНО
+    x = 64;
     display.drawLine(64, 51, 64, 12, WHITE);                                // DIVIDING LINE BETWEEN THE UPPER AND LOWER SCREEN        
         switch(rtcValues.month)
         {

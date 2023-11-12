@@ -1,12 +1,12 @@
 /* ********************************************************************************************** */
 /*                                                                                                */
 /*   Smart Watch Firmware                                              :::::::::        :::       */
-/*   Smart_Watch_Firmware.ino (main file)                             :+:    :+:     :+: :+:      */
+/*   Smart_Watch_Firmware.ino                                         :+:    :+:     :+: :+:      */
 /*                                                                   +:+    +:+    +:+   +:+      */
 /*   By: Roman Alexandrov <r.aleksandroff@gmail.com>                +#++:++#:    +#++:++#++:      */
 /*                                                                 +#+    +#+   +#+     +#+       */
 /*   Created: 2022/07/03 11:28:16                                 #+#    #+#   #+#     #+#        */
-/*   Updated: 2023/03/15 23:08:41                                ###    ###   ###     ###         */
+/*   Updated: 2023/11/12 13:48:41                                ###    ###   ###     ###         */
 /*                                                                                                */
 /*                                                                                                */
 /*   The main file of the project. Here main periferals get initialised then one of operational   */

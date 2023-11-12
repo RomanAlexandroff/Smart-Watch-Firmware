@@ -1,12 +1,12 @@
 /* ********************************************************************************************** */
 /*                                                                                                */
 /*   Smart Watch Firmware                                              :::::::::        :::       */
-/*   mini_digital_clock_ui.h                                          :+:    :+:     :+: :+:      */
+/*   mini_digital_clock_ui.cpp                                        :+:    :+:     :+: :+:      */
 /*                                                                   +:+    +:+    +:+   +:+      */
 /*   By: Roman Alexandrov <r.aleksandroff@gmail.com>                +#++:++#:    +#++:++#++:      */
 /*                                                                 +#+    +#+   +#+     +#+       */
 /*   Created: 2023/06/28 14:49:16                                 #+#    #+#   #+#     #+#        */
-/*   Updated: 2023/06/29 18:48:41                                ###    ###   ###     ###         */
+/*   Updated: 2023/11/12 13:48:41                                ###    ###   ###     ###         */
 /*                                                                                                */
 /*                                                                                                */
 /*   The file contains engine of the 64x64 pixels digital clock widget. The images for the        */
@@ -14,10 +14,11 @@
 /*                                                                                                */
 /* ********************************************************************************************** */
 
+#include "header.h"
+
 void ft_mini_digital_clock_ui()
 {
-        x = 64;                                                             // ВРЕМЕННАЯ ФИКСАЦИЯ ПОЛОЖЕНИЯ НА ЭКРАНЕ – УДАЛИТЬ КОГДА УЖЕ НЕ НУЖНО
-        
+        x = 64;
         if (x >= 63)
             display.drawLine(64, 51, 64, 12, WHITE);                        // DIVIDING LINE BETWEEN THE UPPER AND LOWER SCREEN
         if (rtcMng.second % 2 == 0)

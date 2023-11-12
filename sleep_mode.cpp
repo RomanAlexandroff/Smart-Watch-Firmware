@@ -1,12 +1,12 @@
 /* ********************************************************************************************** */
 /*                                                                                                */
 /*   Smart Watch Firmware                                              :::::::::        :::       */
-/*   sleep_mode.h                                                     :+:    :+:     :+: :+:      */
+/*   sleep_mode.cpp                                                   :+:    :+:     :+: :+:      */
 /*                                                                   +:+    +:+    +:+   +:+      */
 /*   By: Roman Alexandrov <r.aleksandroff@gmail.com>                +#++:++#:    +#++:++#++:      */
 /*                                                                 +#+    +#+   +#+     +#+       */
 /*   Created: 2023/06/28 14:49:16                                 #+#    #+#   #+#     #+#        */
-/*   Updated: 2023/06/29 18:48:41                                ###    ###   ###     ###         */
+/*   Updated: 2023/11/12 13:48:41                                ###    ###   ###     ###         */
 /*                                                                                                */
 /*                                                                                                */
 /*   This mode turns on during the user's incativity. It shows full-screen analog clock and       */
@@ -14,6 +14,8 @@
 /*   everything Wi-Fi related is unavailable. In this mode the watch sleeps almost all the time.  */
 /*                                                                                                */
 /* ********************************************************************************************** */
+
+#include "header.h"
 
 void  ft_sleep_mode(void)
 {

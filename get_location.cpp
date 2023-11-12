@@ -1,17 +1,20 @@
 /* ********************************************************************************************** */
 /*                                                                                                */
 /*   Smart Watch Firmware                                              :::::::::        :::       */
-/*   get_location.h                                                   :+:    :+:     :+: :+:      */
+/*   get_location.cpp                                                 :+:    :+:     :+: :+:      */
 /*                                                                   +:+    +:+    +:+   +:+      */
 /*   By: Roman Alexandrov <r.aleksandroff@gmail.com>                +#++:++#:    +#++:++#++:      */
 /*                                                                 +#+    +#+   +#+     +#+       */
 /*   Created: 2023/06/28 14:49:16                                 #+#    #+#   #+#     #+#        */
-/*   Updated: 2023/06/29 18:48:41                                ###    ###   ###     ###         */
+/*   Updated: 2023/11/12 13:48:41                                ###    ###   ###     ###         */
 /*                                                                                                */
 /*                                                                                                */
 /*   This sketch retrieves location values from the UnwiredLabs server.                           */
 /*                                                                                                */
 /* ********************************************************************************************** */
+
+/*
+#include "header.h"
 
 void  ft_get_location(void)
 {
@@ -95,4 +98,5 @@ void  ft_get_location(void)
     http.end();
     DEBUG_PRINT("ft_get_location function FINISHED");
 }
+*/
  

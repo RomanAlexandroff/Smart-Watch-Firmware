@@ -1,21 +1,19 @@
 /* ********************************************************************************************** */
 /*                                                                                                */
 /*   Smart Watch Firmware                                              :::::::::        :::       */
-/*   ota_update.h                                                     :+:    :+:     :+: :+:      */
+/*   ota_update.cpp                                                   :+:    :+:     :+: :+:      */
 /*                                                                   +:+    +:+    +:+   +:+      */
 /*   By: Roman Alexandrov <r.aleksandroff@gmail.com>                +#++:++#:    +#++:++#++:      */
 /*                                                                 +#+    +#+   +#+     +#+       */
 /*   Created: 2022/07/03 11:28:16                                 #+#    #+#   #+#     #+#        */
-/*   Updated: 2023/03/15 23:08:41                                ###    ###   ###     ###         */
+/*   Updated: 2023/11/12 13:48:41                                ###    ###   ###     ###         */
 /*                                                                                                */
 /*                                                                                                */
 /*   Support file for Over The Air firmware update.                                               */
 /*                                                                                                */
 /* ********************************************************************************************** */
 
-#include <ESP8266mDNS.h>                                      // does not work if included in header
-#include <WiFiUdp.h>
-#include <ArduinoOTA.h>
+#include "header.h"
 
 void  ft_setup_ota(const char* nameprefix, const char* ssid, const char* password) 
 {

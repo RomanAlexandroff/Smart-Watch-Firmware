@@ -1,18 +1,20 @@
 /* ********************************************************************************************** */
 /*                                                                                                */
 /*   Smart Watch Firmware                                              :::::::::        :::       */
-/*   other.h                                                          :+:    :+:     :+: :+:      */
+/*   other.cpp                                                        :+:    :+:     :+: :+:      */
 /*                                                                   +:+    +:+    +:+   +:+      */
 /*   By: Roman Alexandrov <r.aleksandroff@gmail.com>                +#++:++#:    +#++:++#++:      */
 /*                                                                 +#+    +#+   +#+     +#+       */
 /*   Created: 2023/06/28 14:49:16                                 #+#    #+#   #+#     #+#        */
-/*   Updated: 2023/06/29 18:48:41                                ###    ###   ###     ###         */
+/*   Updated: 2023/11/12 13:48:41                                ###    ###   ###     ###         */
 /*                                                                                                */
 /*                                                                                                */
 /*   This file contains all the little utility functions that are not too important to have       */
 /*   their own personal files. They are not necesarrily connected with each other logically.      */
 /*                                                                                                */
 /* ********************************************************************************************** */
+
+#include "header.h"
 
 void ft_button_handle(void) 
 {            

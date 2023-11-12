@@ -6,7 +6,7 @@
 /*   By: Roman Alexandrov <r.aleksandroff@gmail.com>                +#++:++#:    +#++:++#++:      */
 /*                                                                 +#+    +#+   +#+     +#+       */
 /*   Created: 2023/06/28 14:49:16                                 #+#    #+#   #+#     #+#        */
-/*   Updated: 2023/08/13 09:48:41                                ###    ###   ###     ###         */
+/*   Updated: 2023/11/12 13:48:41                                ###    ###   ###     ###         */
 /*                                                                                                */
 /*                                                                                                */
 /* ********************************************************************************************** */
@@ -14,25 +14,23 @@
 #ifndef HEADER_H
 # define HEADER_H
 
-#include <ESP8266WiFi.h>
-#include <ESP8266WiFiMulti.h>
-#include <ESP8266WebServer.h>
-#include <ESP8266HTTPClient.h>
 #include <SPI.h>
 #include <Wire.h>
 #include <Adafruit_GFX.h>
-#include <Adafruit_SSD1306.h>                               // edited version of the standard Adafruit_SSD1306.h
+#include <ESP8266HTTPClient.h>
+#include <ESP8266mDNS.h>
+#include <WiFiUdp.h>
+#include <ArduinoOTA.h>
 #include <ArduinoJson.h>
-#include <Encoder.h>
 #include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h>
 #include <math.h>
-#include "credentials.h"
 #include "bitmap_library.h"
 extern "C" {
     #include "user_interface.h"                             // RTC memory read/write functions
 }
+#include "globals.h"
 
 //#define DEBUG                                               // comment out this line to turn off Serial output
 #ifdef DEBUG
@@ -58,41 +56,6 @@ extern "C" {
 #define BUTTON_PIN      4
 #define TILT_PIN        5
 
-Encoder myEnc(9, 10);
-Adafruit_SSD1306 display(128, 64, &Wire, 1);                // OLED display – SCREEN_WIDTH, SCREEN_HEIGHT, I2C interface, OLED_RESET
-ADC_MODE(ADC_VCC);                                          // battery charge measuring
-ESP8266WiFiMulti wifiMulti;
-WiFiClient client;
-
-typedef struct {
-  int             state_switch;                             // value 17 for Sleep mode; 66 for Work mode; 95 for Low Charge; any other value toggles after-power-down recovery
-  int             program_cycles;                           // keeps track of time instead of Millis
-  short           hour;
-  short           minute;
-  short           second;
-  volatile int    controls_tracker;                         // inactivity timer
-  volatile byte   encoder_counter;                          // encoder
-  volatile bool   tilt_switch;                              // tilt detector
-} rtcManagementStruc;
-rtcManagementStruc rtcMng;                                  // this struct is for bidirectional data transfer between SLEEP and WORK modes via RTC memory
-
-typedef struct {
-  volatile long   old_position;                             // encoder
-  signed int      time_zone;
-  short           day;
-  short           week_day;
-  short           month;
-  int             weather_id;
-  signed int      temp;
-} rtcStore;
-rtcStore rtcValues;                                         // WORK mode RTC memory struct
-
-unsigned short  g_icon_cycle = 1;
-short           x = 0;
-short           y = 0;
-float           lat = 50.0596696;                                             // default latitude — Prague
-float           lon = 14.4656239;                                             // default longitude — Prague
-
 short ft_battery_level(void);
 void  ft_battery_level_ui(short);
 void  IRAM_ATTR ft_button_handle(void);
@@ -100,13 +63,13 @@ void  ft_calendar_ui(void);
 void  ft_default_mode(void);
 void  ft_diagnostic_screen_ui(void);
 void  IRAM_ATTR ft_encoder_handle(void);
-void  ft_get_location(void);
+//void  ft_get_location(void);                                // yet in production
 void  ft_get_time(void);
-void  ft_get_weather(void);                                          // from OpenWeatherMap.org
+void  ft_get_weather(void);
 void  ft_low_charge_mode(void);
-void  ft_maxi_analog_clock_ui(void);                                 // Analog Clock UI -- Full screen (64x128) version
-void  ft_mini_analog_clock_ui(void);                                 // Analog Clock UI -- Standard (64x64) version
-void  ft_mini_digital_clock_ui(void);                                // Digital Clock UI -- Standard (64x64) version
+void  ft_maxi_analog_clock_ui(void);
+void  ft_mini_analog_clock_ui(void);
+void  ft_mini_digital_clock_ui(void);
 void  ft_moon_phases_ui(void);
 void  ft_power_down_recovery(void);
 void  ft_ota_start_and_ui(short battery_charge);
@@ -120,25 +83,5 @@ void  ft_weather_ui(void);
 void  ft_wifi_init(void);
 void  ft_wifi_list(void);
 
-#include "ota_update.h"
-#include "calendar_ui.h"
-#include "default_mode.h"
-#include "get_location.h"
-#include "get_time.h"
-#include "get_weather.h"
-#include "low_charge_mode.h"
-#include "maxi_analog_clock_ui.h"
-#include "mini_analog_clock_ui.h"
-#include "mini_digital_clock_ui.h"
-#include "diagnostic_screen_ui.h"
-#include "moon_phases_ui.h"
-#include "other.h"
-#include "power_down_recovery.h"
-#include "sleep_mode.h"
-#include "system_clock.h"
-#include "weather_ui.h"
-#include "wifi_initialize.h"
-#include "wifi_list.h"
-        
 #endif
  

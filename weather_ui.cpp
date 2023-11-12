@@ -1,12 +1,12 @@
 /* ********************************************************************************************** */
 /*                                                                                                */
 /*   Smart Watch Firmware                                              :::::::::        :::       */
-/*   weather_ui.h                                                     :+:    :+:     :+: :+:      */
+/*   weather_ui.cpp                                                   :+:    :+:     :+: :+:      */
 /*                                                                   +:+    +:+    +:+   +:+      */
 /*   By: Roman Alexandrov <r.aleksandroff@gmail.com>                +#++:++#:    +#++:++#++:      */
 /*                                                                 +#+    +#+   +#+     +#+       */
 /*   Created: 2023/06/28 14:49:16                                 #+#    #+#   #+#     #+#        */
-/*   Updated: 2023/06/29 18:48:41                                ###    ###   ###     ###         */
+/*   Updated: 2023/11/12 13:48:41                                ###    ###   ###     ###         */
 /*                                                                                                */
 /*                                                                                                */
 /*   The function assembles all the weather related information in a correct order and puts       */
@@ -14,9 +14,11 @@
 /*                                                                                                */
 /* ********************************************************************************************** */
 
+#include "header.h"
+
 void ft_weather_ui() { 
-    x = 64;                                                                             // ВРЕМЕННАЯ ФИКСАЦИЯ ПОЛОЖЕНИЯ НА ЭКРАНЕ – УДАЛИТЬ КОГДА УЖЕ НЕ НУЖНО
-    display.drawLine(64, 51, 64, 12, WHITE);                                            // DIVIDING LINE BETWEEN THE UPPER AND LOWER SCREEN 
+    x = 64;
+    display.drawLine(64, 51, 64, 12, WHITE);                           // DIVIDING LINE BETWEEN THE UPPER AND LOWER SCREEN 
     if (rtcValues.weather_id == 800)                                                                              // CLEAR
     {
         if (rtcMng.hour > 5 && rtcMng.hour < 22)

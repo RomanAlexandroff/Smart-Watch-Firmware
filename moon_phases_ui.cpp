@@ -1,12 +1,12 @@
 /* ********************************************************************************************** */
 /*                                                                                                */
 /*   Smart Watch Firmware                                              :::::::::        :::       */
-/*   moon_phases_ui.h                                                 :+:    :+:     :+: :+:      */
+/*   moon_phases_ui.cpp                                               :+:    :+:     :+: :+:      */
 /*                                                                   +:+    +:+    +:+   +:+      */
 /*   By: Roman Alexandrov <r.aleksandroff@gmail.com>                +#++:++#:    +#++:++#++:      */
 /*                                                                 +#+    +#+   +#+     +#+       */
 /*   Created: 2023/06/28 14:49:16                                 #+#    #+#   #+#     #+#        */
-/*   Updated: 2023/06/29 18:48:41                                ###    ###   ###     ###         */
+/*   Updated: 2023/11/12 13:48:41                                ###    ###   ###     ###         */
 /*                                                                                                */
 /*                                                                                                */
 /*   The file contains engine of the Phases of the Moon widget. The images for the widget         */
@@ -14,13 +14,15 @@
 /*                                                                                                */
 /* ********************************************************************************************** */
 
+#include "header.h"
+
 void ft_moon_phases_ui() {         
   // GETTING VALUES – yet to be implemented
 
   // MOON PHASES UI
-    x=64;                                                             // ВРЕМЕННАЯ ФИКСАЦИЯ ПОЛОЖЕНИЯ НА ЭКРАНЕ – УДАЛИТЬ КОГДА УЖЕ НЕ НУЖНО
+    x=64;
     if (x >= 63) display.drawLine(64, 51, 64, 12, WHITE);             // DIVIDING LINE BETWEEN THE UPPER AND LOWER SCREEN 
-    if (rtcMng.minute >= 0 && rtcMng.minute <= 5)                                   // НЕ НАСТОЯЩИЕ ДАННЫЕ ФАЗ ЛУНЫ, А ПРОСТО ВРЕМЕННЫЙ МЕХАНИЗМ ДЛЯ ПОЛЬЗОВАТЕЛЬСКОГО ИНТЕРФЕЙСА
+    if (rtcMng.minute >= 0 && rtcMng.minute <= 5)
         display.drawBitmap(x+2, y, moon2, 64, 64, WHITE);
     if (rtcMng.minute >= 6 && rtcMng.minute <= 10)
         display.drawBitmap(x+2, y, moon3, 64, 64, WHITE);

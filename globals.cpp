@@ -1,28 +1,32 @@
 /* ********************************************************************************************** */
 /*                                                                                                */
 /*   Smart Watch Firmware                                              :::::::::        :::       */
-/*   wifi_initialize.h                                                :+:    :+:     :+: :+:      */
+/*   globals.cpp                                                      :+:    :+:     :+: :+:      */
 /*                                                                   +:+    +:+    +:+   +:+      */
 /*   By: Roman Alexandrov <r.aleksandroff@gmail.com>                +#++:++#:    +#++:++#++:      */
 /*                                                                 +#+    +#+   +#+     +#+       */
-/*   Created: 2023/06/28 14:49:16                                 #+#    #+#   #+#     #+#        */
-/*   Updated: 2023/06/29 18:48:41                                ###    ###   ###     ###         */
+/*   Created: 2023/10/31 14:49:16                                 #+#    #+#   #+#     #+#        */
+/*   Updated: 2023/11/12 13:48:41                                ###    ###   ###     ###         */
 /*                                                                                                */
 /*                                                                                                */
-/*   Setting up and initialisig Wi-Fi connection in accordance with the ESP8266WiFiMulti          */
-/*   library. The ft_wifi_list() function containing all the known Wi-Fi networks credentials     */
-/*   must be called beforehand.                                                                   */
+/*   Global variables and objects initialization                                                  */
 /*                                                                                                */
 /* ********************************************************************************************** */
 
-void  ft_wifi_init(void)
-{
-    WiFi.persistent(true);
-    WiFi.mode(WIFI_STA);
-    WiFi.hostname("Roman's Watch");
-    ft_wifi_list();
-    if (wifiMulti.run(CONNECT_TIMEOUT) == WL_CONNECTED) 
-        DEBUG_PRINT("Successfully connected to Wi-Fi network");
-    else
-        DEBUG_PRINT("Unable to connect to Wi-Fi network. Proceeding without connection");
-}
+#include "globals.h"
+
+Encoder myEnc(9, 10);
+Adafruit_SSD1306 display(128, 64, &Wire, 1);      // OLED display – SCREEN_WIDTH, SCREEN_HEIGHT, I2C interface, OLED_RESET
+ADC_MODE(ADC_VCC);                                // battery charge measuring congig
+ESP8266WiFiMulti wifiMulti;
+WiFiClient client;
+
+rtcManagementStruc rtcMng;
+rtcStore rtcValues;
+
+unsigned short  g_icon_cycle = 1;
+short           x = 0;
+short           y = 0;
+float           lat = 50.0596696;                  // default latitude — Prague
+float           lon = 14.4656239;                  // default longitude — Prague
+ 
