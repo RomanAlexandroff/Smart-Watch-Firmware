@@ -15,6 +15,17 @@
 
 #include "header.h"
 
+static void ft_time_correction(void)
+{
+    if (rtcValues.month >= 11 || rtcValues.month <= 3)                        // winter time correction
+        rtcMng.hour -= 1;
+    rtcMng.hour += rtcValues.time_zone;
+    if (rtcMng.hour > 23)
+        rtcMng.hour -= 24;
+    if (rtcMng.hour < 0)
+        rtcMng.hour = 24 - rtcMng.hour;
+}
+
 void  ft_get_time(void)
 {
     int     i;
@@ -49,7 +60,7 @@ void  ft_get_time(void)
             getWeekDay = line.substring(6, 9);
             rtcValues.day = line.substring(11, 13).toInt();
             getMonth = line.substring(14, 17);
-            rtcMng.hour = (line.substring(23, 25).toInt()) + rtcValues.time_zone;
+            rtcMng.hour = (line.substring(23, 25).toInt());
             rtcMng.minute = line.substring(26, 28).toInt();
             rtcMng.second = line.substring(29, 31).toInt();
             if (getWeekDay == "MON") rtcValues.week_day = 1;                           // Adapting data for ft_system_clock – days of the week
@@ -71,8 +82,7 @@ void  ft_get_time(void)
             if (getMonth == "OCT") rtcValues.month = 10;
             if (getMonth == "NOV") rtcValues.month = 11;
             if (getMonth == "DEC") rtcValues.month = 12;
-            if (rtcValues.month >= 11 || rtcValues.month <= 3)                        // winter time correction
-                rtcMng.hour -= 1;
+            ft_time_correction();
             DEBUG_PRINT("Data retrieved: ");
             DEBUG_PRINT(rtcMng.hour);
             DEBUG_PRINT(rtcMng.minute);

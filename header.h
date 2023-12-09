@@ -56,32 +56,33 @@ extern "C" {
 #define BUTTON_PIN      4
 #define TILT_PIN        5
 
-short ft_battery_level(void);
-void  ft_battery_level_ui(short);
-void  IRAM_ATTR ft_button_handle(void);
-void  ft_calendar_ui(void);
-void  ft_default_mode(void);
-void  ft_diagnostic_screen_ui(void);
-void  IRAM_ATTR ft_encoder_handle(void);
-//void  ft_get_location(void);                                // yet in production
-void  ft_get_time(void);
-void  ft_get_weather(void);
-void  ft_low_charge_mode(void);
-void  ft_maxi_analog_clock_ui(void);
-void  ft_mini_analog_clock_ui(void);
-void  ft_mini_digital_clock_ui(void);
-void  ft_moon_phases_ui(void);
-void  ft_power_down_recovery(void);
-void  ft_ota_start_and_ui(short battery_charge);
-void  ft_setup_ota(const char* nameprefix, const char* ssid, const char* password);
-void  ft_sleep_mode(void);
-int   ft_size_x(int r, float alpha);
-int   ft_size_y(int r, float alpha);
-void  ft_system_clock(void);
-void  IRAM_ATTR ft_tilt_detector_handle(void);     
-void  ft_weather_ui(void);
-void  ft_wifi_init(void);
-void  ft_wifi_list(void);
+short       ft_battery_level(void);
+void        ft_battery_level_ui(short);
+void        IRAM_ATTR ft_button_handle(void);
+void        ft_calendar_ui(void);
+void        ft_default_mode(void);
+void        ft_diagnostic_screen_ui(void);
+void        IRAM_ATTR ft_encoder_handle(void);
+//void        ft_get_location(void);                                // yet in production
+static void ft_time_correction(void);
+void        ft_get_time(void);
+void        ft_get_weather(void);
+void        ft_low_charge_mode(void);
+void        ft_maxi_analog_clock_ui(void);
+void        ft_mini_analog_clock_ui(void);
+void        ft_mini_digital_clock_ui(void);
+void        ft_moon_phases_ui(void);
+void        ft_power_down_recovery(void);
+void        ft_ota_start_and_ui(short battery_charge);
+void        ft_setup_ota(const char* nameprefix, const char* ssid, const char* password);
+void        ft_sleep_mode(void);
+int         ft_size_x(int r, float alpha);
+int         ft_size_y(int r, float alpha);
+void        ft_system_clock(void);
+void        IRAM_ATTR ft_tilt_detector_handle(void);     
+void        ft_weather_ui(void);
+void        ft_wifi_init(void);
+void        ft_wifi_list(void);
 
 #endif
  
