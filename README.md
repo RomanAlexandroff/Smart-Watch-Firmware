@@ -1,5 +1,9 @@
 # The Smart Watch Firmware
 
+**Disclaimer:**
+This is my very first software project, created when I started learning the basics of the C language. As such, you may find some solutions that seem quirky, naive or far from efficient. I took on this ambitious challenge without any prior coding experience, learning about variables, functions, if and while statements, and other features of C in the process. I am proud to share it on my GitHub as a reminder of how much I have grown since then. Thank you for understanding!
+
+
 ## About the Project
   
 This firmware was developed with the goal of providing a simple yet powerful foundation for building a customizable smart watch with some unique features.
